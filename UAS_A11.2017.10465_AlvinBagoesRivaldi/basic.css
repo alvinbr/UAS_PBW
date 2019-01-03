@@ -1,0 +1,51 @@
+.container > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: azure;
+}
+html, body{
+    background-color: rgb(2, 34, 34);
+    margin: 10px;
+}
+.container > div:nth-child(1n){
+background-color: transparent;
+}
+.container > div:nth-child(2n){
+    background-color: transparent;
+}
+.container > div:nth-child(3n){
+    background-color: transparent;
+}
+.container > div:nth-child(4n){
+    background-color: transparent;
+}
+.container > div:nth-child(7n){
+    background-color: white;
+}
+.komen{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 23;
+    padding: 19px;
+    text-align: center;
+}
+.komen1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20;
+    text-align: left;
+}
+.isi{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18;
+    text-align: justify;
+}
+table,th,td {
+    border : 1px solid white;
+    border-collapse: collapse;
+    color: white;
+    background-color:transparent;
+}
+th,td {
+    padding: 5px;
+}

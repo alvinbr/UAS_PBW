@@ -1,0 +1,480 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="iconblora.jpg">
+        <title>Website Pemerintahan Kab Blora</title>
+        <link rel="stylesheet" href="basic.css">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="selekdom.js"></script>
+    </head>
+    <body>
+            <div class="topnav" id="myTopnav">
+                    <a href="index.html"> <img src="logo_header.png" width="123px" height="auto"> </a>
+                    <a href="index.html">Beranda</a>
+                    <a href="halaman5.html">Daftar Kecamatan</a>
+                    <a href="halaman6.html">Wisata Blora</a>
+                    <a href="halaman7.html">Aspirasi Rakyat</a>
+                    <input type="text" placeholder="Mau cari apa...">
+                    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+                </div>
+        <div class="container">
+            <div class="header"> 
+                    <center>
+                        <ul class="slideshow">
+                            <li><a href=""><img src="alun.jpg" title="Alun-Alun Blora" alt="Alun-alun Kabupaten Blora" /></a></li>
+                            <li><a href=""><img src="barong.jpg" title="Topeng Barong" alt="Kesenian Barong Blora" /></a></li>
+                            <li><a href=""><img src="wayang.jpeg" title="Wayang Kulit" alt="Sosialisasi hasil-hasil pembangunan melalui pergelaran wayang kulit" /></a></li>
+                        </ul>
+                    </center>
+            </div>
+            
+            <div class="middle2">
+                <div class="isi">
+                        <center><h2>Kecamatan di Kabupaten Blora</h2></center>
+                        <center>
+                            <button type="button" onclick="memuatDoc()">Daftar Kecamatan</button>
+                            <br><br>
+                            <table id="demo"></table>
+                            </center>
+                            <script>
+                            console.time("waktu ini");
+                            function memuatDoc() {
+                              var xhttp = new XMLHttpRequest();
+                              xhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                  fungsiku(this);
+                                }
+                              };
+                              xhttp.open("GET", "katalogcd.xml", true);
+                              xhttp.send();
+                              console.trace();
+                            }
+                            function fungsiku(xml) {
+                              var i;
+                              var xmlDoc = xml.responseXML;
+                              var table="<tr><th>Nomor</th><th>Nama Kecamatan</th></tr>";
+                              var x = xmlDoc.getElementsByTagName("kecamatan");
+                              for (i = 0; i <x.length; i++) { 
+                                table += "<tr><td>" +
+                                x[i].getElementsByTagName("nomor")[0].childNodes[0].nodeValue +
+                                "</td><td>" +
+                                x[i].getElementsByTagName("namakec")[0].childNodes[0].nodeValue +
+                                "</td></tr>";
+                              }
+                              document.getElementById("demo").innerHTML = table;
+                            	console.trace();
+                            }
+                            </script>
+                        <center><h2>Daftar Desa di Setiap Kecamatan</h2></center>
+                        <center>
+                            <table>
+                                    <tr>
+                                            <td>Kecamatan : <select id="desa" 
+                                                        multiple="multiple"
+                                                        onchange = "infoSelect()">
+                                            <option value="- Kelurahan/Desa Bacem (Kodepos : 58253)
+                                            - Kelurahan/Desa Balongrejo (Kodepos : 58253)
+                                            - Kelurahan/Desa Balongsari (Kodepos : 58253)
+                                            - Kelurahan/Desa Banjarejo (Kodepos : 58253)
+                                            - Kelurahan/Desa Buluroto (Kodepos : 58253)
+                                            - Kelurahan/Desa Gedongsari (Kodepos : 58253)
+                                            - Kelurahan/Desa Jatiklampok (Kodepos : 58253)
+                                            - Kelurahan/Desa Jatisari (Kodepos : 58253)
+                                            - Kelurahan/Desa Karangtalun (Kodepos : 58253)
+                                            - Kelurahan/Desa Kebonrejo (Kodepos : 58253)
+                                            - Kelurahan/Desa Kembang (Kodepos : 58253)
+                                            - Kelurahan/Desa Klopoduwur (Kodepos : 58253)
+                                            - Kelurahan/Desa Mojowetan (Kodepos : 58253)
+                                            - Kelurahan/Desa Plosorejo (Kodepos : 58253)
+                                            - Kelurahan/Desa Sembongin (Kodepos : 58253)
+                                            - Kelurahan/Desa Sendanggayam (Kodepos : 58253)
+                                            - Kelurahan/Desa Sendangwungu (Kodepos : 58253)
+                                            - Kelurahan/Desa Sidomulyo (Kodepos : 58253)
+                                            - Kelurahan/Desa Sumberagung (Kodepos : 58253)
+                                            - Kelurahan/Desa Wonosemi (Kodepos : 58253)">Banjarejo</option>
+                                            <option value="- Kelurahan/Desa Tempelan (Kodepos : 58211)
+                                            - Kelurahan/Desa Kunden (Kodepos : 58212)
+                                            - Kelurahan/Desa Kauman (Kodepos : 58213)
+                                            - Kelurahan/Desa Sonorejo (Kodepos : 58213)
+                                            - Kelurahan/Desa Jetis (Kodepos : 58214)
+                                            - Kelurahan/Desa Tambahrejo (Kodepos : 58214)
+                                            - Kelurahan/Desa Mlangsen (Kodepos : 58215)
+                                            - Kelurahan/Desa Beran (Kodepos : 58216)
+                                            - Kelurahan/Desa Kedung Jenar (Kodepos : 58217)
+                                            - Kelurahan/Desa Bangkle (Kodepos : 58218)
+                                            - Kelurahan/Desa Andongrejo (Kodepos : 58219)
+                                            - Kelurahan/Desa Jejeruk (Kodepos : 58219)
+                                            - Kelurahan/Desa Jepangrejo (Kodepos : 58219)
+                                            - Kelurahan/Desa Kamolan (Kodepos : 58219)
+                                            - Kelurahan/Desa Karangjati (Kodepos : 58219)
+                                            - Kelurahan/Desa Ngadipurwo (Kodepos : 58219)
+                                            - Kelurahan/Desa Ngampel (Kodepos : 58219)
+                                            - Kelurahan/Desa Patalan (Kodepos : 58219)
+                                            - Kelurahan/Desa Pelem (Kodepos : 58219)
+                                            - Kelurahan/Desa Plantungan (Kodepos : 58219)
+                                            - Kelurahan/Desa Purworejo (Kodepos : 58219)
+                                            - Kelurahan/Desa Purwosari (Kodepos : 58219)
+                                            - Kelurahan/Desa Sendangharjo (Kodepos : 58219)
+                                            - Kelurahan/Desa Tambaksari (Kodepos : 58219)
+                                            - Kelurahan/Desa Tegalgunung (Kodepos : 58219)
+                                            - Kelurahan/Desa Tempuran (Kodepos : 58219)
+                                            - Kelurahan/Desa Tempurejo (Kodepos : 58219)
+                                            - Kelurahan/Desa Temurejo (Kodepos : 58219)">Blora Kota</option>
+                                            <option value="- Kelurahan/Desa Bogorejo (Kodepos : 58262)
+                                            - Kelurahan/Desa Gandu (Kodepos : 58262)
+                                            - Kelurahan/Desa Gayam (Kodepos : 58262)
+                                            - Kelurahan/Desa Gembol (Kodepos : 58262)
+                                            - Kelurahan/Desa Gombang (Kodepos : 58262)
+                                            - Kelurahan/Desa Jeruk (Kodepos : 58262)
+                                            - Kelurahan/Desa Jurangjero (Kodepos : 58262)
+                                            - Kelurahan/Desa Karang (Kodepos : 58262)
+                                            - Kelurahan/Desa Karanganyar (Kodepos : 58262)
+                                            - Kelurahan/Desa Nglengkir (Kodepos : 58262)
+                                            - Kelurahan/Desa Prantaan (Kodepos : 58262)
+                                            - Kelurahan/Desa Sarirejo (Kodepos : 58262)
+                                            - Kelurahan/Desa Sendangrejo (Kodepos : 58262)
+                                            - Kelurahan/Desa Tempurejo (Kodepos : 58262)">Bogorejo</option>
+                                            <option value="- Kelurahan/Desa Balun (Kodepos : 58311)
+                                            - Kelurahan/Desa Cepu (Kodepos : 58312)
+                                            - Kelurahan/Desa Ngelo (Kodepos : 58313)
+                                            - Kelurahan/Desa Ngroto (Kodepos : 58314)
+                                            - Kelurahan/Desa Cabeyan (Cabean) (Kodepos : 58315)
+                                            - Kelurahan/Desa Gadon (Kodepos : 58315)
+                                            - Kelurahan/Desa Getas (Kodepos : 58315)
+                                            - Kelurahan/Desa Jipang (Kodepos : 58315)
+                                            - Kelurahan/Desa Kapuan (Kodepos : 58315)Nasi + Steak + Kentang Goreng + Soda Gembira
+                                            - Kelurahan/Desa Karangboyo (Kodepos : 58315)
+                                            - Kelurahan/Desa Kentong (Kodepos : 58315)
+                                            - Kelurahan/Desa Mernung (Kodepos : 58315)
+                                            - Kelurahan/Desa Mulyorejo (Kodepos : 58315)
+                                            - Kelurahan/Desa Nglanjuk (Kodepos : 58315)
+                                            - Kelurahan/Desa Ngloram (Kodepos : 58315)
+                                            - Kelurahan/Desa Sumberpitu (Kodepos : 58315)
+                                            - Kelurahan/Desa Tambakromo (Kodepos : 58315)">Cepu</option>
+                                            <option value="- Kelurahan/Desa Beganjing (Kodepos : 58257)
+                                            - Kelurahan/Desa Bogem (Kodepos : 58257)
+                                            - Kelurahan/Desa Bogorejo (Kodepos : 58257)
+                                            - Kelurahan/Desa Dologan (Kodepos : 58257)
+                                            - Kelurahan/Desa Gaplokan (Kodepos : 58257)
+                                            - Kelurahan/Desa Harjowinangun (Kodepos : 58257)
+                                            - Kelurahan/Desa Japah (Kodepos : 58257)
+                                            - Kelurahan/Desa Kalinanas (Kodepos : 58257)
+                                            - Kelurahan/Desa Krocok (Kodepos : 58257)
+                                            - Kelurahan/Desa Ngapus (Kodepos : 58257)
+                                            - Kelurahan/Desa Ngiyono (Kodepos : 58257)
+                                            - Kelurahan/Desa Ngrambitan (Kodepos : 58257)
+                                            - Kelurahan/Desa Padaan (Kodepos : 58257)
+                                            - Kelurahan/Desa Pengkolrejo (Kodepos : 58257)
+                                            - Kelurahan/Desa Sumberejo (Kodepos : 58257)
+                                            - Kelurahan/Desa Tengger (Kodepos : 58257)
+                                            - Kelurahan/Desa Tlogowungu (Kodepos : 58257)
+                                            - Kelurahan/Desa Wotbakah (Kodepos : 58257)">Japah</option>
+                                            <option value="- Kelurahan/Desa Bangkleyan (Kodepos : 58384)
+                                            - Kelurahan/Desa Doplang (Kodepos : 58384)
+                                            - Kelurahan/Desa Gabusan (Kodepos : 58384)
+                                            - Kelurahan/Desa Gempol (Kodepos : 58384)
+                                            - Kelurahan/Desa Jati (Kodepos : 58384)
+                                            - Kelurahan/Desa Jegong (Kodepos : 58384)
+                                            - Kelurahan/Desa Kepoh (Kodepos : 58384)
+                                            - Kelurahan/Desa Pelem (Kodepos : 58384)
+                                            - Kelurahan/Desa Pengkoljagong (Kodepos : 58384)
+                                            - Kelurahan/Desa Randulawang (Kodepos : 58384)
+                                            - Kelurahan/Desa Singget (Kodepos : 58384)
+                                            - Kelurahan/Desa Tobo (Kodepos : 58384)">Jati</option>
+                                            <option value="- Kelurahan/Desa Bacem (Kodepos : 58261)
+                                            - Kelurahan/Desa Balong (Kodepos : 58261)
+                                            - Kelurahan/Desa Bangsri (Kodepos : 58261)
+                                            - Kelurahan/Desa Blungun (Kodepos : 58261)
+                                            - Kelurahan/Desa Brumbung (Kodepos : 58261)
+                                            - Kelurahan/Desa Gedangdowo (Kodepos : 58261)
+                                            - Kelurahan/Desa Geneng (Kodepos : 58261)
+                                            - Kelurahan/Desa Gersi (Kodepos : 58261)
+                                            - Kelurahan/Desa Jatirejo (Kodepos : 58261)
+                                            - Kelurahan/Desa Jepon (Kodepos : 58261)
+                                            - Kelurahan/Desa Jomblang (Kodepos : 58261)
+                                            - Kelurahan/Desa Kawengan (Kodepos : 58261)
+                                            - Kelurahan/Desa Kemiri (Kodepos : 58261)
+                                            - Kelurahan/Desa Ngampon (Kodepos : 58261)
+                                            - Kelurahan/Desa Nglarohgunung (Kodepos : 58261)
+                                            - Kelurahan/Desa Palon (Kodepos : 58261)
+                                            - Kelurahan/Desa Puledagel (Kodepos : 58261)
+                                            - Kelurahan/Desa Semampir (Kodepos : 58261)
+                                            - Kelurahan/Desa Semanggi (Kodepos : 58261)
+                                            - Kelurahan/Desa Seso (Kodepos : 58261)
+                                            - Kelurahan/Desa Soko (Kodepos : 58261)
+                                            - Kelurahan/Desa Sumurboto (Kodepos : 58261)
+                                            - Kelurahan/Desa Tempellemahbang (Kodepos : 58261)
+                                            - Kelurahan/Desa Turirejo (Kodepos : 58261)
+                                            - Kelurahan/Desa Waru (Kodepos : 58261)">Jepon</option>
+                                            <option value="- Kelurahan/Desa Bangowan (Kodepos : 58372)
+                                            - Kelurahan/Desa Bleboh (Kodepos : 58372)
+                                            - Kelurahan/Desa Cabak (Kodepos : 58372)
+                                            - Kelurahan/Desa Genjahan (Kodepos : 58372)
+                                            - Kelurahan/Desa Janjang (Kodepos : 58372)
+                                            - Kelurahan/Desa Jiken (Kodepos : 58372)
+                                            - Kelurahan/Desa Jiworejo (Kodepos : 58372)
+                                            - Kelurahan/Desa Ketringan (Kodepos : 58372)
+                                            - Kelurahan/Desa Nglebur (Kodepos : 58372)
+                                            - Kelurahan/Desa Nglobo (Kodepos : 58372)
+                                            - Kelurahan/Desa Singonegoro (Kodepos : 58372)">Jiken</option>
+                                            <option value="- Kelurahan/Desa Bajo (Kodepos : 58381)
+                                            - Kelurahan/Desa Galuk (Kodepos : 58381)
+                                            - Kelurahan/Desa Gondel (Kodepos : 58381)
+                                            - Kelurahan/Desa Jimbung (Kodepos : 58381)
+                                            - Kelurahan/Desa Kalen (Kodepos : 58381)
+                                            - Kelurahan/Desa Kedungtuban (Kodepos : 58381)
+                                            - Kelurahan/Desa Kemantren (Kodepos : 58381)
+                                            - Kelurahan/Desa Ketuwan (Kodepos : 58381)
+                                            - Kelurahan/Desa Klagen (Kodepos : 58381)
+                                            - Kelurahan/Desa Nglandeyan (Kodepos : 58381)
+                                            - Kelurahan/Desa Ngraho (Kodepos : 58381)
+                                            - Kelurahan/Desa Panolan (Kodepos : 58381)
+                                            - Kelurahan/Desa Pulo (Kodepos : 58381)
+                                            - Kelurahan/Desa Sidorejo (Kodepos : 58381)
+                                            - Kelurahan/Desa Sogo (Kodepos : 58381)
+                                            - Kelurahan/Desa Tanjung (Kodepos : 58381)
+                                            - Kelurahan/Desa Wado (Kodepos : 58381)">Kedungtuban</option>
+                                            <option value="- Kelurahan/Desa Getas (Kodepos : 58383)
+                                            - Kelurahan/Desa Medalem (Kodepos : 58383)
+                                            - Kelurahan/Desa Megeri (Kodepos : 58383)
+                                            - Kelurahan/Desa Mendenrejo (Kodepos : 58383)
+                                            - Kelurahan/Desa Mojorembun (Kodepos : 58383)
+                                            - Kelurahan/Desa Nginggil (Kodepos : 58383)
+                                            - Kelurahan/Desa Nglebak (Kodepos : 58383)
+                                            - Kelurahan/Desa Nglungger (Kodepos : 58383)
+                                            - Kelurahan/Desa Ngrawoh (Kodepos : 58383)
+                                            - Kelurahan/Desa Sumber (Kodepos : 58383)">Kradenan</option>
+                                            <option value="- Kelurahan/Desa Bakah (Kodepos : 58255)
+                                            - Kelurahan/Desa Balong (Kodepos : 58255)
+                                            - Kelurahan/Desa Bejirejo (Kodepos : 58255)
+                                            - Kelurahan/Desa Blumbangrejo (Kodepos : 58255)
+                                            - Kelurahan/Desa Botoreco (Kodepos : 58255)
+                                            - Kelurahan/Desa Buloh (Kodepos : 58255)
+                                            - Kelurahan/Desa Cungkup (Kodepos : 58255)
+                                            - Kelurahan/Desa Gagaan (Kodepos : 58255)
+                                            - Kelurahan/Desa Jagong (Kodepos : 58255)
+                                            - Kelurahan/Desa Jetak (Kodepos : 58255)
+                                            - Kelurahan/Desa Kalangrejo (Kodepos : 58255)
+                                            - Kelurahan/Desa Karanggeneng (Kodepos : 58255)
+                                            - Kelurahan/Desa Kedungwaru (Kodepos : 58255)
+                                            - Kelurahan/Desa Kemiri (Kodepos : 58255)
+                                            - Kelurahan/Desa Klokah (Kodepos : 58255)
+                                            - Kelurahan/Desa Kodokan (Kodepos : 58255)
+                                            - Kelurahan/Desa Kunduran (Kodepos : 58255)
+                                            - Kelurahan/Desa Muraharjo (Kodepos : 58255)
+                                            - Kelurahan/Desa Ngawenombo (Kodepos : 58255)
+                                            - Kelurahan/Desa Ngilen (Kodepos : 58255)
+                                            - Kelurahan/Desa Ploso Rejo (Kodepos : 58255)
+                                            - Kelurahan/Desa Sambiroto (Kodepos : 58255)
+                                            - Kelurahan/Desa Sempu (Kodepos : 58255)
+                                            - Kelurahan/Desa Sendangwates (Kodepos : 58255)
+                                            - Kelurahan/Desa Sonokidul (Kodepos : 58255)
+                                            - Kelurahan/Desa Tawangrejo (Kodepos : 58255)">Kunduran</option>
+                                            <option value="- Kelurahan/Desa Bandungrojo (Kodepos : 58254)
+                                            - Kelurahan/Desa Berbak (Kodepos : 58254)
+                                            - Kelurahan/Desa Bergolo (Kodepos : 58254)
+                                            - Kelurahan/Desa Bogowanti (Kodepos : 58254)
+                                            - Kelurahan/Desa Bradag (Kodepos : 58254)
+                                            - Kelurahan/Desa Gedebeg (Kodepos : 58254)
+                                            - Kelurahan/Desa Gondang (Kodepos : 58254)
+                                            - Kelurahan/Desa Gotputuk (Kodepos : 58254)
+                                            - Kelurahan/Desa Jetakwanger (Kodepos : 58254)
+                                            - Kelurahan/Desa Karangjong (Kodepos : 58254)
+                                            - Kelurahan/Desa Karangtengah (Kodepos : 58254)
+                                            - Kelurahan/Desa Kedungsatriyan (Kodepos : 58254)
+                                            - Kelurahan/Desa Kendayaan (Kodepos : 58254)
+                                            - Kelurahan/Desa Ngawen (Kodepos : 58254)
+                                            - Kelurahan/Desa Plumbon (Kodepos : 58254)
+                                            - Kelurahan/Desa Punggursugih (Kodepos : 58254)
+                                            - Kelurahan/Desa Rowobungkul (Kodepos : 58254)
+                                            - Kelurahan/Desa Sambonganyar (Kodepos : 58254)
+                                            - Kelurahan/Desa Sambongrejo (Kodepos : 58254)
+                                            - Kelurahan/Desa Sarimulyo (Kodepos : 58254)
+                                            - Kelurahan/Desa Semawur (Kodepos : 58254)
+                                            - Kelurahan/Desa Sendangagung (Kodepos : 58254)
+                                            - Kelurahan/Desa Sendangmulyo (Kodepos : 58254)
+                                            - Kelurahan/Desa Sendangrejo (Kodepos : 58254)
+                                            - Kelurahan/Desa Srigading (Kodepos : 58254)
+                                            - Kelurahan/Desa Sumberejo (Kodepos : 58254)
+                                            - Kelurahan/Desa Talokwohmojo (Kodepos : 58254)
+                                            - Kelurahan/Desa Trembulrejo (Kodepos : 58254)
+                                            - Kelurahan/Desa Wantilgung (Kodepos : 58254)">Ngawen</option>
+                                            <option value="- Kelurahan/Desa Bekutuk (Kodepos : 58382)
+                                            - Kelurahan/Desa Bodeh (Kodepos : 58382)
+                                            - Kelurahan/Desa Gembyungan (Kodepos : 58382)
+                                            - Kelurahan/Desa Jeruk (Kodepos : 58382)
+                                            - Kelurahan/Desa Kadengan (Kodepos : 58382)
+                                            - Kelurahan/Desa Kalisari (Kodepos : 58382)
+                                            - Kelurahan/Desa Kediren (Kodepos : 58382)
+                                            - Kelurahan/Desa Kutukan (Kodepos : 58382)
+                                            - Kelurahan/Desa Ngliron (Kodepos : 58382)
+                                            - Kelurahan/Desa Pilang (Kodepos : 58382)
+                                            - Kelurahan/Desa Plosorejo (Kodepos : 58382)
+                                            - Kelurahan/Desa Randublatung (Kodepos : 58382)
+                                            - Kelurahan/Desa Sambongwangan (Kodepos : 58382)
+                                            - Kelurahan/Desa Sumberjo (Kodepos : 58382)
+                                            - Kelurahan/Desa Tanggel (Kodepos : 58382)
+                                            - Kelurahan/Desa Temulus (Kodepos : 58382)
+                                            - Kelurahan/Desa Tlogotuwung (Kodepos : 58382)
+                                            - Kelurahan/Desa Wulung (Kodepos : 58382)">Randublatung</option>
+                                            <option value="- Kelurahan/Desa Biting (Kodepos : 58371)
+                                            - Kelurahan/Desa Brabowan (Kodepos : 58371)
+                                            - Kelurahan/Desa Gadu (Kodepos : 58371)
+                                            - Kelurahan/Desa Gagakan (Kodepos : 58371)
+                                            - Kelurahan/Desa Giyanti (Kodepos : 58371)
+                                            - Kelurahan/Desa Ledok (Kodepos : 58371)
+                                            - Kelurahan/Desa Pojokwatu (Kodepos : 58371)
+                                            - Kelurahan/Desa Sambong (Kodepos : 58371)
+                                            - Kelurahan/Desa Sambongrejo (Kodepos : 58371)
+                                            - Kelurahan/Desa Temengeng (Kodepos : 58371)">Sambong</option>
+                                            <option value="- Kelurahan/Desa Bedingin (Kodepos : 58256)
+                                            - Kelurahan/Desa Bicak (Kodepos : 58256)
+                                            - Kelurahan/Desa Candi (Kodepos : 58256)
+                                            - Kelurahan/Desa Cokrowati (Kodepos : 58256)
+                                            - Kelurahan/Desa Dalangan (Kodepos : 58256)
+                                            - Kelurahan/Desa Dringo (Kodepos : 58256)
+                                            - Kelurahan/Desa Gondoriyo (Kodepos : 58256)
+                                            - Kelurahan/Desa Gunungan (Kodepos : 58256)
+                                            - Kelurahan/Desa Kacangan (Kodepos : 58256)
+                                            - Kelurahan/Desa Kajengan (Kodepos : 58256)
+                                            - Kelurahan/Desa Karanganyar (Kodepos : 58256)
+                                            - Kelurahan/Desa Kedungbacin (Kodepos : 58256)
+                                            - Kelurahan/Desa Kedungwungu (Kodepos : 58256)
+                                            - Kelurahan/Desa Kembang (Kodepos : 58256)
+                                            - Kelurahan/Desa Ketileng (Kodepos : 58256)
+                                            - Kelurahan/Desa Ledok (Kodepos : 58256)
+                                            - Kelurahan/Desa Ngumbul (Kodepos : 58256)
+                                            - Kelurahan/Desa Pelemsengir (Kodepos : 58256)
+                                            - Kelurahan/Desa Prigi (Kodepos : 58256)
+                                            - Kelurahan/Desa Sambeng (Kodepos : 58256)
+                                            - Kelurahan/Desa Sendang (Kodepos : 58256)
+                                            - Kelurahan/Desa Sonokulon (Kodepos : 58256)
+                                            - Kelurahan/Desa Tinapan (Kodepos : 58256)
+                                            - Kelurahan/Desa Todanan (Kodepos : 58256)
+                                            - Kelurahan/Desa Wukirsari (Kodepos : 58256)">Todanan</option>
+                                            <option value="- Kelurahan/Desa Adirejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Gempolrejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Kalangan (Kodepos : 58252)
+                                            - Kelurahan/Desa Kedungrejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Kedungringin (Kodepos : 58252)
+                                            - Kelurahan/Desa Keser (Kodepos : 58252)
+                                            - Kelurahan/Desa Nglangitan (Kodepos : 58252)
+                                            - Kelurahan/Desa Sambongrejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Sitirejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Sukorejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Tamanrejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Tambahrejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Tawangrejo (Kodepos : 58252)
+                                            - Kelurahan/Desa Tunjungan (Kodepos : 58252)
+                                            - Kelurahan/Desa Tutup (Kodepos : 58252)">Tunjungan</option>
+                                            </select>
+                                            </select>
+                                            <br />
+                                               <hr />
+                                                Info:
+                                                <textarea name="teksInfo" id="desa1"
+                                                          rows="20" cols="44">
+                                                </textarea>
+                                            </td>
+                                    </tr>
+                            </table>
+                            <script type="text/javascript">
+                            	function fungsidunialain(){
+                                memuatDoc();
+                                fungsiku();
+                                infoSelect();
+                            }
+                            console.timeEnd("waktu ini");
+                            </script>    
+                        <center><button onclick="fungsidunialain()">Mulai Trace</button></center>
+                        </center>
+                </div>
+            
+            </div>
+        <div class="right2">
+            <div class="komen1">
+			<h3>Baca juga :</h3>
+			<p>
+				<ul>
+					<li><a href="halaman1.html">Makna Lambang Kabupaten Blora</a></li>
+					<li><a href="halaman2.html">Seni Barongan Blora</a></li>
+                    <li><a href="halaman3.html">Wedang Cemohe Khas Blora</a></li>
+                    <li><a href="halaman4.html">Upah Minimum Kabupaten Blora</a></li>
+				</ul>
+			</p>
+            </div>
+        </div>
+        </div>
+            <div class="container3">
+                <div class="footer">
+                        <div class="komen"> 
+                            2017 Dinas Perhubungan, Komunikasi dan Informatika Kab Blora - A11.2017.10465 
+                        </div>
+                    </div>
+            </div>
+        
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' type='text/javascript'></script>
+        <script type='text/javascript'>
+        //<![CDATA[
+        $(document).ready(function() {
+        //Execute the slideShow, set 6 seconds for each images
+        slideShow(3000);
+        });
+        function slideShow(speed) {
+        //append a LI item to the UL list for displaying caption
+        $('ul.slideshow').append('<li id="slideshow-caption" class="caption"><div class="slideshow-caption-container"><h3></h3><p></p></div></li>');
+        //Set the opacity of all images to 0
+        $('ul.slideshow li').css({opacity: 0.0});
+        //Get the first image and display it (set it to full opacity)
+        $('ul.slideshow li:first').css({opacity: 1.0});
+        //Get the caption of the first image from REL attribute and display it
+        $('#slideshow-caption h3').html($('ul.slideshow a:first').find('img').attr('title'));
+        $('#slideshow-caption p').html($('ul.slideshow a:first').find('img').attr('alt'));
+        //Display the caption
+        $('#slideshow-caption').css({opacity: 0.7, bottom:0});
+        //Call the gallery function to run the slideshow
+        var timer = setInterval('gallery()',speed);
+        //pause the slideshow on mouse over
+        $('ul.slideshow').hover(
+        function () {
+        clearInterval(timer);
+        },
+        function () {
+        timer = setInterval('gallery()',speed);
+        }
+        );
+        }
+        function gallery() {
+        //if no IMGs have the show class, grab the first image
+        var current = ($('ul.slideshow li.show')? $('ul.slideshow li.show') : $('#ul.slideshow li:first'));
+        //Get next image, if it reached the end of the slideshow, rotate it back to the first image
+        var next = ((current.next().length) ? ((current.next().attr('id') == 'slideshow-caption')? $('ul.slideshow li:first') :current.next()) : $('ul.slideshow li:first'));
+        //Get next image caption
+        var title = next.find('img').attr('title');
+        var desc = next.find('img').attr('alt');
+        //Set the fade in effect for the next image, show class has higher z-index
+        next.css({opacity: 0.0}).addClass('show').animate({opacity: 1.0}, 1000);
+        //Hide the caption first, and then set and display the caption
+        $('#slideshow-caption').animate({bottom:-70}, 300, function () {
+        //Display the content
+        $('#slideshow-caption h3').html(title);
+        $('#slideshow-caption p').html(desc);
+        $('#slideshow-caption').animate({bottom:0}, 500);
+        });
+        //Hide the current image
+        current.animate({opacity: 0.0}, 1000).removeClass('show');
+        }
+        //]]>
+        </script>
+    </body>
+</html>
